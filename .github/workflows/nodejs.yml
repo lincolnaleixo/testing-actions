@@ -15,6 +15,8 @@ jobs:
       run: npm init -y
     - name: Pushing back
       run: |
+        git config --global user.email "lincolnmorai@morais.com"
+        git config --global user.name "lincolnaleixo"
         git add .
         git commit -m "Add changes from Github Action" -a
         git push
