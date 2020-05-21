@@ -5,14 +5,16 @@ on:
     types: [opened, created, deleted]
 
 jobs:
-  build:
-
+  my-job:
+    name: My Job
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Testing action
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
-    - run: npm init -y
+    - name: Checking out code
+      uses: actions/checkout@v2
+    - name: Running npm
+      run: npm init -y
+    - name: Pushing back
+      run: |
+        git add .
+        git commit -m "Add changes from Github Action" -a
+        git push
